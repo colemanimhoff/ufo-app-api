@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/colemanimhoff/ufo-app-api/issues"
   },
-  "homepage": "https://github.com/colemanimhoff/ufo-app-api#readme"
+  "homepage": "https://github.com/colemanimhoff/ufo-app-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
