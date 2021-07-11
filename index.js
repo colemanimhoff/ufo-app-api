@@ -13,8 +13,11 @@ app.use(morgan(process.env.NODE_ENV !== 'production' ? 'dev' : 'combined'));
 app.use(cors({ origin: true, credentials: true }));
 
 // get all sightings
-app.get('/sightings', (_, res) => {
-    pool.query('SELECT * FROM sighting')
+app.get('/sightings', (req, res) => {
+    const offset = req.query.offset || 0;
+    const limit = req.query.limit || 50;
+
+    pool.query(`SELECT * FROM sighting LIMIT ${limit} OFFSET ${offset}`)
         .then((response) => res.json(response.rows))
         .catch((error) => console.error(error));
 });
